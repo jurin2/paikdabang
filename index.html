@@ -199,14 +199,14 @@
         .coffee-story .inner{
             padding: 30px 0;
         }
-        h2{
+        .coffee-story h2{
             margin-bottom: 10px;
             font-weight: 700;
             font-size: 1.2em;
             color: #564e00;
             text-transform: capitalize;
         }
-        h3{
+        .coffee-story h3{
             margin-bottom: 10px;
             font-weight: 900;
             font-size: 3em;
@@ -219,9 +219,86 @@
         .btn-hover{
             width: 50px;
             height: 50px;
-            margin: 0 0 0 auto;
+            margin: 30px 0 30px auto;
+            position: relative;
+            cursor: pointer;
+        }
+        .ico-paik{
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            /* border: 2px solid #071f60;
+            border-radius: 50%;
+            overflow: hidden; */    
+        }
+        .btn-hover:hover .ico-paik{
+            opacity: 1;
+        }    
+        .rotate-plus{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: 0.3s;
+        }
+        .btn-hover:hover .rotate-plus{
+            transform: rotate(360deg); 
+            opacity: 0;  
+        }
+        .rotate-plus::before,.rotate-plus::after{
+            content: '';
+            display: block;
+            background-color: #000;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .rotate-plus::before{
+            width: 20px;
+            height: 4px;
+        }
+        .rotate-plus::after{
+            width: 4px;
+            height: 20px;
         }
 
+        /* fresh-coffee */
+        .fresh-coffee{
+            position: relative;
+        }
+        .fresh-coffee .img-box{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            z-index: 0;
+        }
+        .fresh-coffee .inner{
+            position: relative;
+            z-index: 1;
+        }
+        .fresh-coffee h3{
+            font-weight: 900;
+            font-size: 1.2em;
+            color: #6b4d30;
+            line-height: 1.2;    
+        }
+        .fresh-coffee h3::after{
+            content: '';
+            display: block;
+            width: 37px;
+            height: 2px;
+            margin: 30px 0;
+            background-color: #6b4d30;
+        }
+        .fresh-coffee p{
+            line-height: 1.5;
+        }
+        
 
         /* 데스크탑 스타일 */
         @media (min-width:1200px) {
@@ -258,6 +335,12 @@
                 position: absolute;
                 left: 0;
                 top: 100%;
+            }
+            .coffee-story p{
+                display: block;
+            }
+            .btn-hover{
+                margin: 30px auto 30px 0;
             }
         }
     </style>
@@ -396,7 +479,32 @@
             </div>
         </section>
         <section class="sec fresh-coffee">
-            <div class="container"></div>
+            <div class="container">
+                <div class="img-box">
+                    <picture>
+                        <source media="(min-width:1200px)" srcset="./images/main_sec2.jpg">
+                        <img src="./images/mmain_sec2.jpg" alt="프래쉬 커피">
+                    </picture>                   
+                </div>
+                <div class="inner">
+                    <h3>
+                        FRESH
+                        <br>
+                        COFFEE
+                    </h3>
+                    <p>
+                        신선한 뉴크롭 원두를 사용하여 추출한
+                        <br>
+                        커피메뉴!
+                    </p>
+                    <div class="btn-hover">      
+                        <div class="ico-paik">
+                            <img src="./images/btn1-on.png" alt="빽다방 호버버튼">
+                        </div>
+                        <div class="rotate-plus"></div>
+                    </div>
+                </div>
+            </div>
         </section>
         <section class="sec various-sweet">
             <div class="container"></div>
