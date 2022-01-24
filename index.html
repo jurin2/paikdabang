@@ -29,9 +29,321 @@
     <!-- reset -->
     <link rel="stylesheet" href="./css/reset.css">
 
+    <!-- font-awesome css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- bxslider css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.css" integrity="sha512-rV4fiystTwIvs71MLqeLbKbzosmgDS7VU5Xqk1IwFitAM+Aa9x/8Xil4CW+9DjOvVle2iqg4Ncagsbgu2MWxKQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>빽다방</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+        :root{
+            font-family: 'Montserrat','Noto Sans KR', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: #222;
+            line-height: 1;
+        }
+
+        .container{
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+        .skip-menu a{
+            position: absolute;
+            left: 0;
+            top: -50px;
+            padding: 10px 20px;
+            font-weight: 700;
+            font-size: 20px;
+            color: #fff;
+            background-color: #071f60;
+        }
+        .skip-menu a:focus{
+            top: 0;
+        }
+
+        .wrap{
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .header .inner{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        .h-left{
+            width: 97px;
+        }
+        .sm-nav{
+            display: none;
+            justify-content: flex-end;
+            align-items: center;
+            font-weight: 300;
+            font-size: 12px;
+            color: #999;
+        }
+        .sm-nav li:nth-child(1),.sm-nav li:nth-child(2){
+            padding: 0 16px;
+        }
+        .ico-sns{
+            margin-left: 22px;
+            font-size: 24px;
+            color: #071f60;
+            
+        }
+        .ico-sns:last-of-type{
+            padding: 5px;
+            border-radius: 50%;
+            font-size: 14px;
+            background-color: #071f60;
+            color: #fff;
+            
+        }
+        .btn-nav{
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: flex-end;
+            cursor: pointer;
+        }
+        .btn-nav .line{
+            width: 30px;
+            height: 4px;
+            margin-bottom: 6px;
+            border-radius: 2px;     
+            background-color: #000;
+            text-indent: -999999px;
+        }
+        .btn-nav .line:last-child{
+            margin-bottom: 0;
+        }
+        .nav{
+            position: fixed;
+            left: 100%;
+            right: -100%;
+            top: 70px;
+            bottom: 0;
+            background-color: #fff;
+            transition: 0.3s;
+        }
+        .nav.active{
+            left: 30%;
+            right: 0;
+        }
+        .main-nav{
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .main-nav>li{
+            width: 100%;
+            border-bottom: 1px solid #ccc;
+        }
+        .main-nav>li>a{
+            display: block;
+            padding: 16px;
+        }
+        .sub-nav{
+            display: none;
+            padding: 0 20px;
+            font-size: 0.8em;
+        }
+        .sub-nav li{
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+        }
+        .sub-nav li:last-of-type{
+            border-bottom: none;
+            margin-bottom: 5px;
+        }
+
+
+
+        /* 데스크탑 스타일 */
+        @media (min-width:1200px) {
+            .header{
+                position: relative;
+            }
+            .header .inner{
+                height: 120px;
+            }
+            .h-left{
+                width: 194px;
+            }
+            .sm-nav{
+                display: flex;
+                margin-bottom: 30px;
+            }   
+            .btn-nav{
+                display: none;
+            }     
+            .nav{
+                position: static;
+            }
+            .main-nav>li{
+                width: auto;
+                margin-left: 80px;
+                border-bottom: none;
+                padding: 0;
+            }
+            .main-nav>li>a{
+                padding: 0;
+            }
+            .sub-nav{
+                display: none;
+                position: absolute;
+                left: 0;
+                top: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-    
+    <section class="skip-menu">
+        <a href="#">메뉴1</a>
+        <a href="#">메뉴2</a>
+        <a href="#">메뉴3</a>
+    </section>
+
+    <section class="wrap">
+        <header class="header">
+            <div class="container">
+                <div class="inner">
+                    <div class="h-left">
+                    <h1><a href="./index.html"><img src="./images/logo.png" alt="시작페이지로 이동"></a></h1>
+                    </div>
+                    <div class="h-right">
+                        <ul class="sm-nav">
+                            <li><a href="#">더본코리아</a></li>
+                            <li><a href="#">매장찾기</a></li>
+                            <li class="ico-sns"><a href="#"><i class="fab fa-facebook"></i></a></li>
+                            <li class="ico-sns"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        </ul>
+                        <div class="btn-nav">
+                            <div class="line">라인</div>
+                            <div class="line">라인</div>
+                            <div class="line">라인</div>
+                        </div>
+                        <nav class="nav">
+                            <ul class="main-nav">
+                                <li>
+                                    <a href="#">빽다방</a>
+                                    <ul class="sub-nav">
+                                        <li><a href="#">CEO 인사말</a></li>
+                                        <li><a href="#">빽다방 소개</a></li>
+                                        <li><a href="#">커피이야기</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">메뉴</a>
+                                    <ul class="sub-nav">
+                                        <li><a href="#">신메뉴</a></li>
+                                        <li><a href="#">커피</a></li>
+                                        <li><a href="#">음료</a></li>
+                                        <li><a href="#">아이스크림/디저트</a></li>
+                                        <li><a href="#">빽스치노</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">소식</a>
+                                    <ul class="sub-nav">
+                                        <li><a href="#">소식</a></li>
+                                        <li><a href="#">이벤트</a></li>
+                                        <li><a href="#">친절 우수매장</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">커뮤니티</a>
+                                    <ul class="sub-nav">
+                                        <li><a href="#">커피 클래스</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">매장안내</a>
+                                    <ul class="sub-nav">
+                                        <li><a href="#">매장찾기</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">창업안내</a>
+                                    <ul class="sub-nav">
+                                        <li><a href="#">가맹정보 및 절차</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">고객의 소리</a></li>
+
+                            </ul>
+                        </nav>
+                    </div>    
+                </div>       
+            </div>
+        </header>
+        <section class="sec main-slider">
+            <div class="container">
+                <div class="slider">
+                    <div>
+                        <a href="#">
+                            <img src="./images/mmain-banner01.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sec coffee-story">
+            <div class="container"></div>
+        </section>
+        <section class="sec fresh-coffee">
+            <div class="container"></div>
+        </section>
+        <section class="sec various-sweet">
+            <div class="container"></div>
+        </section>
+        <section class="sec dessert-fran-store">
+            <div class="container"></div>
+        </section>
+        <section class="sec sns">
+            <div class="container"></div>
+        </section>
+        <footer class="footer">
+            <div class="container"></div>
+        </footer>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- bxslider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js" integrity="sha512-p55Bpm5gf7tvTsmkwyszUe4oVMwxJMoff7Jq3J/oHaBk+tNQvDKNz9/gLxn9vyCjgd6SAoqLnL13fnuZzCYAUA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $('.btn-nav').on({
+            'click':function(){
+                $('.nav').toggleClass('active');
+               
+            }
+        })
+        $('.main-nav>li').on({
+            'click':function(){
+                $(this).children('.sub-nav').slideToggle();
+            }
+        })
+    </script>
+
 </body>
 </html>
