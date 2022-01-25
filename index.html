@@ -39,7 +39,10 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300&display=swap');
+
         :root{
+            scroll-behavior: smooth;
             font-family: 'Montserrat','Noto Sans KR', sans-serif;
             font-weight: 400;
             font-size: 16px;
@@ -52,6 +55,16 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 10px;
+        }
+        .item-sec{
+            overflow: hidden;
+        }
+        .item-sec .img-box{
+            transition: 0.3s;
+        }
+        .item-sec:hover .img-box{
+            transform: scale(1.05);
+
         }
         .skip-menu a{
             position: absolute;
@@ -73,6 +86,14 @@
         }
 
         /* header */
+        .header{
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            z-index: 9998;
+            background-color: #fff;
+        }
         .header .inner{
             display: flex;
             justify-content: space-between;
@@ -93,13 +114,13 @@
         .sm-nav li:nth-child(1),.sm-nav li:nth-child(2){
             padding: 0 16px;
         }
-        .ico-sns{
+        .header .ico-sns{
             margin-left: 22px;
             font-size: 24px;
             color: #071f60;
             
         }
-        .ico-sns:last-of-type{
+        .header .ico-sns:last-of-type{
             padding: 5px;
             border-radius: 50%;
             font-size: 14px;
@@ -146,6 +167,7 @@
         .main-nav>li{
             width: 100%;
             border-bottom: 1px solid #ccc;
+ 
         }
         .main-nav>li>a{
             display: block;
@@ -166,6 +188,9 @@
         }
 
         /* main-sleder */
+        .main-slider{
+            padding-top: 70px;
+        }
         .main-slider .container{
             max-width: 100%;
             padding: 0;
@@ -191,6 +216,7 @@
 
         /* coffee-story */
         .coffee-story{
+            margin-bottom: 5px;
             background-image: url('./images/main_sec1.jpg');
             background-repeat: no-repeat;
             background-position: center;
@@ -226,10 +252,7 @@
         .ico-paik{
             opacity: 0;
             width: 100%;
-            height: 100%;
-            /* border: 2px solid #071f60;
-            border-radius: 50%;
-            overflow: hidden; */    
+            height: 100%;  
         }
         .btn-hover:hover .ico-paik{
             opacity: 1;
@@ -266,45 +289,320 @@
             height: 20px;
         }
 
-        /* fresh-coffee */
-        .fresh-coffee{
+        /* item-sec */
+        .item-sec{
             position: relative;
+            margin-bottom: 10px;
         }
-        .fresh-coffee .img-box{
+        .item-sec .container{
             position: absolute;
             left: 0;
+            top: 0;
+            bottom: 0;
+        }
+        .item-sec .inner{
+            height: 100%;
+            padding-top: 10px;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+        }
+        .item-sec h3{
+            font-weight: 900;
+            font-size: 1.5em;
+            color: #6b4d30;
+        }
+        .item-sec hr{
+            width: 37px;
+            height: 2px;
+            margin: 13px 0;
+            border: none;
+            background-color: #6b4d30;
+        }
+        .item-sec p{
+            display: none;
+            font-weight: 500;
+            font-size: 1.2em;
+            color: #222;
+            line-height: 1.3;
+        }
+
+        /* various */
+        .various h3{
+            color: #071f60;
+        }
+        .various hr{
+            background-color: #071f60;
+        }
+
+        /* sweet */
+        .sweet h3{
+            color: #f1ae1d;
+        }
+        .sweet hr{
+            background-color: #f1ae1d;
+        }
+
+        /* dessert-fran-store */
+        .dessert-fran-store{
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .dessert-fran-store article{
+            width: 100%;
+        }
+        .dessert h3{
+            color: #fff;
+        }
+        .dessert hr{
+            background-color: #fff;
+        }
+        .dessert p{
+            color: #fff;
+        }
+        .dessert .btn-hover{
+            margin-top: 0;
+        }
+        .dessert .inner{
+            justify-content: flex-start;
+        }
+        .dessert .btn-hover{
+            margin-top: 30px;
+        }
+        .fran-store .inner{
+            display: flex;
+            flex-flow: row nowrap;
+        }
+        .fran-store .inner>div{
+            flex: 1;
+            height: 240px;
+            border: 2px solid #071f60;
+            padding: 10px;
+        }
+        .fran-store .inner .fran{
+            margin-right: 10px;
+        }
+        .fran-store h3{
+            font-weight: 900;
+            font-size: 2.2em;
+            color: #071f60;
+            margin-bottom: 10px;
+        }
+        .fran-store p{
+            margin-bottom: 80px;
+            line-height: 1.3;
+        }
+        .fran{
+            position: relative;
+        }
+        .fran::before{
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            max-width: 250px;
             right: 0;
             top: 0;
+            bottom: 0;
+            background-image: url(./images/main_sec6.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: right bottom;
             z-index: 0;
         }
-        .fresh-coffee .inner{
+        .fran h3,.fran p,.fran .btn-hover{
             position: relative;
             z-index: 1;
         }
-        .fresh-coffee h3{
-            font-weight: 900;
-            font-size: 1.2em;
-            color: #6b4d30;
-            line-height: 1.2;    
+        .store input{
+            width: 100%;
         }
-        .fresh-coffee h3::after{
+        .search{
+            position: relative;
+        }
+        .search input{
+            border: 2px solid #071f60;
+            padding: 10px;
+        }
+        .search i{
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #071f60;
+        }
+
+        /* sns */
+        .sns{
+            border-bottom: 2px solid #ff0;
+            padding: 70px 0;
+            
+        }
+        .sns h2{
+            font-family: 'Source Serif 4', sans-serif;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            color: #071f60;
+            text-align: center;
+            letter-spacing: 3px;   
+        }
+        .sns p{
+            text-align: center;
+        }
+        .sns span{
+            margin: 0 5px;
+            color: #999;
+        }
+        .sns hr{
+            width: 50px;
+            height: 2px;
+            border: none;
+            margin: 30px auto;
+            background-color: #071f60;      
+        }
+        .sns .ico-sns{
+            width: 90px;
+            margin: 0 auto;
+            font-size: 2em;
+            color: #071f60;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* footer */
+        .footer{
+            padding: 30px 0;
+        }
+        .footer .container{
+            position: relative;
+        }
+        .footer .img-box{
+            width: 180px;
+            margin: 0 auto 30px;
+        }
+        .footer address{
+            font-style: normal;
+        }
+        .footer address ul{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+        }
+        .footer address li{
+            width: 100%;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .footer .copyright{
+            padding-top: 20px;
+            text-align: center;
+        }
+        .footer .f-sit{
+            position: absolute;
+            right: 0;
+            top: 0;
+            border: 1px solid #666;
+            border-radius: 2px;
+            padding: 5px 10px;
+            font-size: 13px;
+            display: none;
+            cursor: pointer;
+        }
+        .footer .f-sit:hover{
+            background-color: #333;
+            color: #fff;
+        }
+        .footer .f-sit .f-list{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: calc(100% + 6px);
+            border: 1px solid #666;
+            border-radius: 2px;
+            background-color: #fff;
+            color: #222;
+            display: none;
+        }
+        .footer .f-sit .f-list li{
+            padding: 7px;
+        }
+        .footer .f-sit .f-list li:hover{
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* scr-top */
+        .scr-top{
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 30px;
+        }
+        .btn-top{
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            margin: 0 0 0 auto;
+            background-color: #ff0;  
+            font-weight: 700;
+            font-size: 0.5em;       
+        }
+        .btn-top::before{
+            box-sizing: border-box;
             content: '';
             display: block;
-            width: 37px;
-            height: 2px;
-            margin: 30px 0;
-            background-color: #6b4d30;
+            width: 10px;
+            height: 10px;
+            border-top:0 solid #000;
+            border-left:5px solid transparent;
+            border-right:5px solid transparent;
+            border-bottom:10px solid #000;
         }
-        .fresh-coffee p{
-            line-height: 1.5;
+
+
+        @media (max-width:540px) {
+            .fran-store h3{
+                font-size: 1.5em;
+            }
+            .fran-store .inner>div{
+                height: 320px;
+            }
+            .fran-store p{
+                margin-bottom: 120px;
+            }
         }
-        
+
+        @media (min-width:960px) {
+            .fran-store h3{
+                font-size: 2.8em;
+            }
+            .footer address li{
+                width: auto;
+                border-right: 1px solid #999;
+                padding: 0 14px;
+            }
+            .footer address li:last-child{
+                border-right: none;
+            }
+        }
+
+        /* 테블릿 스타일 */
+        @media (min-width:768px) {
+            .item-sec .inner{
+                padding-top: 20px;
+            }
+            .item-sec h3{
+                font-size: 2.4em;
+            }
+        }
 
         /* 데스크탑 스타일 */
         @media (min-width:1200px) {
-            .header{
-                position: relative;
-            }
+            /* header */
             .header .inner{
                 height: 120px;
             }
@@ -326,21 +624,144 @@
                 margin-left: 80px;
                 border-bottom: none;
                 padding: 0;
+                position: relative;
+            }
+            .main-nav>li::before{
+                content: '';
+                display: block;
+                position: fixed;
+                left: 0;
+                right: 0;
+                z-index: 10;
+                top: 120px;
+                height: 0;
+                background-color: #ff0;
+                transition: 0.15s;
+            }
+            .main-nav>li.active::before{
+                display: block;
+                height: 200px;
             }
             .main-nav>li>a{
                 padding: 0;
             }
             .sub-nav{
-                display: none;
+                display:none;
                 position: absolute;
-                left: 0;
-                top: 100%;
+                left: -40px;
+                right: -40px;
+                top: 50px;
+                z-index: 11;
+                margin: 0;
+                padding: 0;             
             }
+            .sub-nav li{
+                margin: 0;
+                padding: 10px 0;
+                border-bottom: none;
+                text-align: center;
+            }
+
+            /* main-slider */
+            .main-slider{
+                padding-top: 120px;
+            }
+
+            /* coffee-story */
             .coffee-story p{
                 display: block;
             }
             .btn-hover{
                 margin: 30px auto 30px 0;
+            }
+
+            /* item-sec */
+            .item-sec .container{
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .item-sec .inner{
+                padding-top: 60px;
+            }
+            .item-sec h3{
+                font-size: 3em;
+            }
+            .item-sec p{
+                display: block;
+            }
+
+            /* various-sweet */
+            .various-sweet article{
+                float: left;
+            }
+            .various-sweet article:nth-child(1){
+                width: calc(60% - 5px);
+                margin-right: 5px;
+            }
+            .various-sweet article:nth-child(2){
+                width: calc(40% - 5px);
+                margin-left: 5px;
+            }
+            .various .inner{
+                width: 650px;
+                margin: 0 0 0 auto;
+            }
+            .sweet .inner{
+                padding-left: 30px;
+            }
+
+            /* dessert-fran-store */
+            .dessert .inner{
+                padding-left: 30px;
+            }
+            .dessert-fran-store article:nth-child(1){
+                flex: 52;
+                order: 2;
+            }
+            .dessert-fran-store article:nth-child(2){
+                flex: 48;
+                order: 1;
+                margin-right: 10px;
+            }
+            .fran-store .container{
+                padding-right: 0;
+            }
+            .fran-store .inner{
+                flex-direction: column;
+                width: 500px;
+                margin: 0 0 0 auto; 
+            }
+            .fran-store .inner>div{
+                padding: 30px;
+            }
+            .fran-store .inner .fran{
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .fran-store h3{
+                font-size: 3.0em;
+            }
+            .fran{
+                order: 2;
+            }
+            .store{
+                order: 1;
+                margin-bottom: 10px;
+            }
+            .store .search{
+                width: 80%;
+            }
+            .search input{
+                padding: 16px;
+                font-size: 1.2em;
+            }
+            .search i{
+                font-size: 1.5em;
+            }
+
+            /* footer */
+            .footer .f-sit{
+                display: block
             }
         }
     </style>
@@ -425,7 +846,7 @@
                 </div>       
             </div>
         </header>
-        <section class="sec main-slider">
+        <section class="sec main-slider" id="top">
             <div class="container">
                 <div class="slider">
                     <div>
@@ -478,25 +899,28 @@
                 </div>
             </div>
         </section>
-        <section class="sec fresh-coffee">
+        <section class="sec item-sec fresh-coffee">
+            <div class="img-box">
+                <picture>
+                    <source media="(min-width:1200px)" srcset="./images/main_sec2.jpg">
+                    <img src="./images/mmain_sec2.jpg" alt="프래쉬 커피">
+                </picture>                   
+            </div>
             <div class="container">
-                <div class="img-box">
-                    <picture>
-                        <source media="(min-width:1200px)" srcset="./images/main_sec2.jpg">
-                        <img src="./images/mmain_sec2.jpg" alt="프래쉬 커피">
-                    </picture>                   
-                </div>
                 <div class="inner">
-                    <h3>
-                        FRESH
-                        <br>
-                        COFFEE
-                    </h3>
-                    <p>
-                        신선한 뉴크롭 원두를 사용하여 추출한
-                        <br>
-                        커피메뉴!
-                    </p>
+                    <div class="content">
+                        <h3>
+                            FRESH
+                            <br>
+                            COFFEE
+                        </h3>
+                        <hr>
+                        <p>
+                            신선한 뉴크롭 원두를 사용하여 추출한
+                            <br>
+                            커피메뉴!
+                        </p>
+                    </div>                
                     <div class="btn-hover">      
                         <div class="ico-paik">
                             <img src="./images/btn1-on.png" alt="빽다방 호버버튼">
@@ -506,29 +930,202 @@
                 </div>
             </div>
         </section>
-        <section class="sec various-sweet">
-            <div class="container"></div>
+        <section class="sec various-sweet clearfix">         
+            <article class="item-sec various">
+                <div class="img-box">
+                    <picture>
+                        <source media="(min-width:1200px)" srcset="./images/main_sec3.jpg">
+                        <img src="./images/mmain_sec3.jpg" alt="에이드,티,주스">
+                    </picture>                   
+                </div>
+                <div class="container">
+                    <div class="inner">
+                        <div class="content">
+                            <h3>
+                                VARIOUS
+                                <br>
+                                BEVERAGE
+                            </h3>
+                            <hr>
+                            <p>
+                                에이드, 티, 주스 등 취향대로
+                                <br>
+                                골라 먹는 즐거움!
+                            </p>
+                        </div>                
+                        <div class="btn-hover">      
+                            <div class="ico-paik">
+                                <img src="./images/btn1-on.png" alt="빽다방 호버버튼">
+                            </div>
+                            <div class="rotate-plus"></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="item-sec sweet">
+                <div class="img-box">
+                    <picture>
+                        <source media="(min-width:1200px)" srcset="./images/main_sec4.jpg">
+                        <img src="./images/mmain_sec4.jpg" alt="빽다방 시그니처 메뉴">
+                    </picture>                   
+                </div>
+                <div class="container">
+                    <div class="inner">
+                        <div class="content">
+                            <h3>
+                                SWEET
+                                <br>
+                                PAIK'S CCINO
+                            </h3>
+                            <hr>
+                            <p>
+                                달콤 시원한 빽다방
+                                <br>
+                                시그니처 메뉴!
+                            </p>
+                        </div>                
+                        <div class="btn-hover">      
+                            <div class="ico-paik">
+                                <img src="./images/btn1-on.png" alt="빽다방 호버버튼">
+                            </div>
+                            <div class="rotate-plus"></div>
+                        </div>
+                    </div>
+                </div>
+            </article>      
         </section>
-        <section class="sec dessert-fran-store">
-            <div class="container"></div>
+        <section class="sec dessert-fran-store">          
+            <article class="item-sec dessert">
+                <div class="img-box">
+                    <picture>
+                        <source media="(min-width:1200px)" srcset="./images/main_sec5.jpg">
+                        <img src="./images/mmain_sec5.jpg" alt="아이스크림과 디저트">
+                    </picture>                   
+                </div>
+                <div class="container">
+                    <div class="inner">
+                        <div class="content">
+                            <h3>
+                                TASTY
+                                <br>
+                                ICE CREAM
+                                <br>
+                                DESSERT
+                            </h3>
+                            <hr>
+                            <p>
+                                달콤한 아이스크림부터
+                                <br>
+                                든든한 브레드 까지!
+                            </p>
+                        </div>                
+                        <div class="btn-hover">      
+                            <div class="ico-paik">
+                                <img src="./images/btn1-on.png" alt="빽다방 호버버튼">
+                            </div>
+                            <div class="rotate-plus"></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="fran-store">
+                <div class="container">
+                    <div class="inner">
+                        <div class="fran">
+                            <h3>FRANCHISE</h3>
+                            <p>빽다방 창업안내를 도와드리겠습니다.</p>
+
+                            <div class="btn-hover">      
+                                <div class="ico-paik">
+                                    <img src="./images/btn1-on.png" alt="빽다방 호버버튼">
+                                </div>
+                                <div class="rotate-plus"></div>
+                            </div>
+                        </div>
+                        <div class="store">
+                            <h3>STORE</h3>
+                            <p>원하시는 지역의 매장을 검색해 보세요!</p>
+                            <div class="search">
+                                <input type="search" placeholder="매장을 검색하세요.">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </article>
         </section>
         <section class="sec sns">
-            <div class="container"></div>
+            <div class="container">
+                <h2>PAIK’S COFFEE SNS</h2>
+                <p>
+                    <span>#빽다방</span>
+                    <span>#빽다방신메뉴</span>
+                    <span>#빽다방이벤트</span>
+                </p>
+                <hr>
+                <div class="ico-sns">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram-square"></i></a>
+
+                </div>
+            </div>
         </section>
         <footer class="footer">
-            <div class="container"></div>
+            <div class="container">
+                <div class="img-box">
+                    <a href="./index.html">
+                        <img src="./images/flogo.png" alt="더본코리아 로고">
+                    </a>
+                </div>
+                <address>
+                    <ul>
+                        <li><a href="#">(주)더본코리아</a></li>
+                        <li><a href="#">사업자등록번호 211-86-00870</a></li>
+                        <li><a href="#">대표이사 백종원</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">주소: 서울시 강남구 봉은사로 1길 39 유성빌딩 5~6층</a></li>
+                        <li><a href="#">팩스: 02-511-3864</a></li>                
+                    </ul>
+                    <ul>
+                        <li><a href="#">본사 대표전화: 02-549-3864</a></li>
+                        <li><a href="#">가맹상담전화: 02-3447-0410</a></li>
+                        <li><a href="#">고객센터: 1544-2360</a></li>
+                    </ul>
+                    <div class="copyright">
+                        COPYRIGHTⓒ 2018 THEBORN KOREA INC. ALL RIGHTS RESERVED
+                    </div>
+                </address>     
+                <div class="f-sit">
+                    <span>패밀리사이트 바로가기</span>
+                    <ul class="f-list">
+                        <li><a href="#">더본코리아</a></li>
+                        <li><a href="#">창업센터</a></li>
+                        <li><a href="#">새마을식당</a></li>
+                        <li><a href="#">한신포차</a></li>
+                        <li><a href="#">역전우동</a></li>
+                        <li><a href="#">백스비어</a></li>
+                        <li><a href="#">롤링파스타</a></li>
+                        <li><a href="#">인생설렁탕</a></li>
+                        <li><a href="#">미정국수</a></li>
+                        <li><a href="#">리춘시장</a></li>
+                        <li><a href="#">원조쌈밥집</a></li>
+                        <li><a href="#">돌배기집</a></li>
+                        <li><a href="#">백철판</a></li>
+                        <li><a href="#">호텔더본</a></li>                            
+                    </ul>
+                </div>  
+            </div>
         </footer>
+        <section class="scr-top">
+            <div class="container">
+                <a href="#top" class="btn-top">
+                    <span>TOP</span>
+                </a>
+                
+            </div>
+        </section>
     </section>
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- jquery -->
@@ -546,10 +1143,22 @@
         })
         $('.main-nav>li').on({
             'click':function(){
-                $(this).children('.sub-nav').slideToggle();
+                $('.main-nav>li').not($(this)).children('.sub-nav').slideUp(300);
+                $(this).children('.sub-nav').slideToggle(300);
+                $('.main-nav>li').not($(this)).removeClass('active');
+                $(this).toggleClass('active');
             }
         })
-        $('.slider').bxSlider();
+        $('.slider').bxSlider({
+            speed:1000,
+            auto:true,
+            pause:5000
+        });
+        $('.f-sit').on({
+            'click':function(){
+                $('.f-list').slideToggle(300);
+            }
+        });
     </script>
 
 </body>
