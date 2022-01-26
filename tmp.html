@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>빽다방</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width:100%;
+            vertical-align: top;
+        }
+        .container{
+            margin: 0 16px;
+        }
+
+        /* flex */
+        .flex-container{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+        .flex-container section{
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .store{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+        .store article{
+            width: calc(50% - 5px);
+            border: 1px solid black;
+        }
+        .flex-container section.main-slider{
+            margin-bottom: 0;
+        }
+        .flex-container section.coffee-story{
+            height: 30vw;
+            margin-bottom: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+        .flex-container section.coffee-story img{
+            position:absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width: auto;
+            height: 100%;
+        }
+        section.pos-re{
+            position: relative;
+        }
+        .contents{
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            top: 10px;
+            bottom: 10px;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+        }
+        .contents h2{
+            margin-bottom: 5px;
+        }
+        .contents .btn-box{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #000;
+            align-self: flex-end;
+        }
+
+        @media(min-width:768px){
+            .flex-container section.fresh,
+            .flex-container section.various{
+                width: calc(50% - 5px);
+            }
+            .flex-container section.sweet{
+                width: calc(33.3333% - 5px);
+            }
+            .flex-container section.tasty{
+                width: calc(66.6667% - 5px);
+            }
+            .flex-container section.store{
+                width: calc(66.6667% - 5px);
+            }
+            .flex-container section.sns{
+                width: calc(33.3333% - 5px);
+            }
+            .store article{
+                width: 100%;
+            }
+            .store article:first-child{
+                margin-bottom: 10px;
+            }
+            .contents .btn-box{
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="container">
+                HEADER
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <div class="flex-container grid-container">
+                    <section class="main-slider">
+                        <img src="./images/mmain-banner01.jpg" alt="배너">
+                    </section>
+
+                    <section class="coffee-story">
+                        <img src="./images/main_sec1.jpg" alt="배너">
+                    </section>
+                    
+                    <section class="fresh pos-re">
+                        <img src="./images/mmain_sec2.jpg" alt="배너">
+                        <div class="contents">
+                            <div class="txt-box">
+                                <h2>제목</h2>
+                                <p>내용</p>
+                            </div>
+                            <div class="btn-box">
+                                <div class="btn-rotate"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="various">
+                        <img src="./images/mmain_sec3.jpg" alt="배너">
+                        <div class="contents">
+                            <div class="txt-box">
+                                <h2>제목</h2>
+                                <p>내용</p>
+                            </div>
+                            <div class="btn-box">
+                                <div class="btn-rotate"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="sweet">
+                        <img src="./images/mmain_sec4.jpg" alt="배너">
+                        <div class="contents">
+                            <div class="txt-box">
+                                <h2>제목</h2>
+                                <p>내용</p>
+                            </div>
+                            <div class="btn-box">
+                                <div class="btn-rotate"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="tasty">
+                        <img src="./images/mmain_sec5.jpg" alt="배너">
+                        <div class="contents">
+                            <div class="txt-box">
+                                <h2>제목</h2>
+                                <p>내용</p>
+                            </div>
+                            <div class="btn-box">
+                                <div class="btn-rotate"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="store">
+                        <article>
+                            FRAN
+                        </article>
+                        <article>
+                            SROTE
+                        </article>
+                    </section>
+                    <section class="sns">SNS</section>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="container">
+                FOOTER
+            </div>    
+        </footer>
+    </div>
+</body>
+</html>
