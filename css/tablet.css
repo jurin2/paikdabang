@@ -1,0 +1,37 @@
+@charset 'utf-8';
+
+/* 태블릿 스타일 */
+@media (max-width:540px) {
+    .fran-store h3{
+        font-size: 1.5em;
+    }
+    .fran-store .inner>div{
+        height: 320px;
+    }
+    .fran-store p{
+        margin-bottom: 120px;
+    }
+}
+
+@media (min-width:768px) {
+    .item-sec .inner{
+        padding-top: 20px;
+    }
+    .item-sec h3{
+        font-size: 2.4em;
+    }
+}
+
+@media (min-width:960px) {
+    .fran-store h3{
+        font-size: 2.8em;
+    }
+    .footer address li{
+        width: auto;
+        border-right: 1px solid #999;
+        padding: 0 14px;
+    }
+    .footer address li:last-child{
+        border-right: none;
+    }
+}
