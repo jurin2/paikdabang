@@ -411,30 +411,15 @@
     <!-- bxslider -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js" integrity="sha512-p55Bpm5gf7tvTsmkwyszUe4oVMwxJMoff7Jq3J/oHaBk+tNQvDKNz9/gLxn9vyCjgd6SAoqLnL13fnuZzCYAUA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script>
-        $('.btn-nav').on({
-            'click':function(){
-                $('.nav').toggleClass('active');
-               
-            }
-        })
-        $('.main-nav>li').on({
-            'click':function(){
-                $('.main-nav>li').not($(this)).children('.sub-nav').slideUp(300);
-                $(this).children('.sub-nav').slideToggle(300);
-                $('.main-nav>li').not($(this)).removeClass('active');
-                $(this).toggleClass('active');
-            }
-        })
+    <!-- header&foooter 공통 -->
+    <script src="./js/rsp-menu.js"></script>
+    <script src="./js/f-sit.js"></script>
+
+    <script> 
         $('.slider').bxSlider({
             speed:1000,
             auto:true,
             pause:5000
-        });
-        $('.f-sit').on({
-            'click':function(){
-                $('.f-list').slideToggle(300);
-            }
         });
     </script>
 
