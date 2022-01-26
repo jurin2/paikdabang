@@ -37,11 +37,76 @@
 
     <!-- css -->
     <link rel="stylesheet" href="./css/mobile.min.css">
-    <link rel="stylesheet" href="./css/tablet.mincss">
+    <link rel="stylesheet" href="./css/tablet.min.css">
     <link rel="stylesheet" href="./css/desktop.min.css">
 
     <title>빽다방</title>
 
+    <style>
+        .wrap{
+            height: 100vh;
+        }
+        .popup-par{
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 10001;
+        }
+        .popup{
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 10001;
+            width: 300px;
+            padding: 30px 16px 16px 16px;
+            border-radius: 16px;
+            background-color: #fff;
+            display: block;
+        }
+        .btn-close{
+            position: absolute;
+            right: -15px;
+            top: -15px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #000;
+            cursor: pointer;
+        }
+        .btn-close::before,.btn-close::after{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            content: '';
+            display: block;
+            width: 20px;
+            height: 3px;
+            border-radius: 2px;
+            background-color: #fff;
+        }
+        .btn-close::before{
+            transform: translate(-50%,-50%) rotate(45deg) ;
+        }
+        .btn-close::after{
+            transform: translate(-50%,-50%) rotate(-45deg) ;
+        }
+        .popup-main{
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .chk-box{
+            position: absolute;
+            left: 16px;
+            bottom: -30px;
+        }
+        /* .popup-login{
+            position: relative;
+            z-index: 10001;
+        } */
+    </style>
 </head>
 <body>
     <section class="skip-menu">
@@ -50,6 +115,37 @@
         <a href="#">메뉴3</a>
     </section>
 
+    <section class="popup-par" style="display: none;">
+        <section class="popup">
+            <div class="btn-close"></div>
+            <div class="popup-main">
+                <div class="img-box">
+                    <a href="#">
+                        <img src="./images/mmain-banner01.jpg" alt="팝업">
+                    </a>
+                </div>
+            </div>
+            <div class="chk-box">
+                <label>
+                    <input type="checkbox" >
+                    24시간 열지 않음
+                </label>
+            </div>
+        </section> 
+    </section>
+
+    <!-- <div class="popup-login">
+        <div class="login">
+            <form>
+                <input id="user-id" type="text" placeholder="아이디">
+                <input id="user-pass" type="password" placeholder="패스워드">
+                <input id="btn-send" type="submit" value="로그인">
+                <input id="btn-reset" type="reset" value="취소">
+                <label><input id="save-id" type="checkbox">아이디저장</label>
+            </form>
+        </div>
+    </div> -->
+    
     <section class="wrap">
         <header class="header">
             <div class="container">
@@ -58,7 +154,8 @@
                     <h1><a href="./index.html"><img src="./images/logo.png" alt="시작페이지로 이동"></a></h1>
                     </div>
                     <div class="h-right">
-                        <ul class="sm-nav">
+                        <ul class="sm-nav">           
+                            <li><a href="#">로그인</a></li>
                             <li><a href="#">더본코리아</a></li>
                             <li><a href="#">매장찾기</a></li>
                             <li class="ico-sns"><a href="#"><i class="fab fa-facebook"></i></a></li>
@@ -408,6 +505,9 @@
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <!-- jquery cookie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- bxslider -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js" integrity="sha512-p55Bpm5gf7tvTsmkwyszUe4oVMwxJMoff7Jq3J/oHaBk+tNQvDKNz9/gLxn9vyCjgd6SAoqLnL13fnuZzCYAUA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -421,6 +521,42 @@
             auto:true,
             pause:5000
         });
+        $('.btn-close').on({
+            'click':function(){
+                $('.popup-par').css('display','none');
+                $('.wrap').css('height','auto');
+                if($('.chk-box input').is(':checked')){
+                    let nowDate = new Date(); /* 오늘날짜 */
+                    let nowDay = nowDate.getDate(); /* 오늘일 */
+                    let endDate = new Date(nowDate.setDate(nowDay + 1)); /* 끝날짜 */
+                    document.cookie = 'popup=no;expires=' + endDate + ';'; /* 하루 뒤 종료 */
+                }
+            }
+        })
+
+        // 쿠키만들기
+        if(document.cookie == 'popup=no'){
+            $('.popup-par').css('display','none');
+            $('.wrap').css('height','auto');
+        }else{
+            $('.popup-par').css('display','block');
+        }
+  
+        // 로그인 쿠키만들기
+        // $('#btn-send').on({
+        //     'click':function(){
+        //         if($('#save-id').is(':checked')){
+        //             let uId = $('#user-id').val(); /* val()는 value */
+        //             console.log(uId);
+        //             document.cookie = 'user-id='+ uId + ';';
+        //         }else{
+        //             document.cookie = 'user-id';
+        //         }
+        //     }
+        // })
+        // $('#user-id').val('kiyo0811');
+
+        // console.log(document.cookie);
     </script>
 
 </body>
