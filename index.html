@@ -109,30 +109,97 @@
             top: 0;
             bottom: 0;
             z-index: 10001;
+            display: none;
         }
         .login form{
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%,-50%);
-            width: 300px;
-            height: 500px;
-            padding: 10px;
+            width: 80%;
+            max-width: 540px;
+            border: 1px solid rgba(0,0,0,0.15);
+            padding: 40px 25px 25px;
             border-radius: 10px;
             background-color: #fff;
             display: flex;
             flex-flow: row wrap;
             align-content: space-around;
         }
-        .login form input{
+        .input01,.input02,.input03,.input04,.input05{
             width: 100%;
         }
-        .login form label{
+        .login form>div>input,.login form>div>label{
             width: 100%;
         }
-        .login form label input{
-            width:auto;
+        .input01,.input02{
+            border: 1px solid rgba(0,0,0,0.3);
+            border-bottom: transparent;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            padding: 12px 24px;
+            
         }
+        /* .input01::after{
+            content: '\f007';
+            display: block;
+
+            font-family: 'Font Awesome 5 Free';
+            font-size: 1.0em;
+            font-weight: 600;
+        }
+        .input02::after{
+            content: '\f09c';
+            display: block;
+
+            font-family: 'Font Awesome 5 Free';
+            font-size: 1.0em;
+            font-weight: 600;
+        } */
+        .login .input01>input,.login .input02>input{
+            width: auto;
+        }
+        .input01 input,.input02 input{
+            border: none;
+            outline: none;
+            font-weight: 500;
+            font-size: 20px;
+        }
+        .input01 input::placeholder,.input02 input::placeholder{
+            color: #999;
+        }
+        .input02{
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(0,0,0,0.3);
+            border-top-left-radius: 0;
+            border-top-right-radius: 0; 
+            border-bottom-left-radius: 6px; 
+            border-bottom-right-radius: 6px; 
+        }
+        .input03 input,.input04 input{
+            margin: 6px 0;
+            border: 1px solid rgba(0,0,0,0.15);
+            border-radius: 6px;
+            padding: 12px;
+            background-color: #ffff00;
+            font-weight: 700;
+            font-size: 18px;
+            color: #071f60;
+        }
+        .login h2{
+            margin: 0 auto;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        /* .input05 input{
+            display: none;
+        }
+        .input05 .chk-box{
+            width: 20px;
+            height: 20px;
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: 4px;
+        } */
     </style>
 </head>
 <body>
@@ -163,11 +230,33 @@
 
     <div class="login">
         <form>
-            <input type="text" id="user-id">
-            <input type="password" id="user-pass">
-            <input type="submit" value="로그인" id="btn-send">
-            <input type="reset" value="취소" id="btn-reset">
-            <label><input type="checkbox" id="save-id">아이디저장</label>
+            <h2>
+                <i class="fas fa-sign-in-alt"></i>
+                ID 로그인
+            </h2>
+            <div class="input01">
+                <i class="far fa-user"></i>
+                <input type="text" id="user-id" placeholder="아이디">
+            </div>
+            <div class="input02">
+                <i class="fas fa-unlock"></i>
+                <input type="password" id="user-pass" placeholder="패스워드">
+            </div>
+            <div class="input05">
+                <label>
+                    <input type="checkbox" id="save-id">
+                    <div class="chk-box"></div>
+                    ID 저장
+                </label>
+            </div>
+            <div class="input03">
+                <input type="submit" value="로그인" id="btn-send">
+            </div>
+            <div class="input04">
+                <input type="reset" value="취소" id="btn-reset">
+            </div>
+            
+            
         </form>
     </div>
     
@@ -180,7 +269,7 @@
                     </div>
                     <div class="h-right">
                         <ul class="sm-nav">           
-                            <li><a href="#">로그인</a></li>
+                            <li><a href="#" id="btn-login">로그인</a></li>
                             <li><a href="#">더본코리아</a></li>
                             <li><a href="#">매장찾기</a></li>
                             <li class="ico-sns"><a href="#"><i class="fab fa-facebook"></i></a></li>
@@ -546,6 +635,8 @@
             auto:true,
             pause:5000
         });
+
+        //모달배너 닫기
         $('.btn-close').on({
             'click':function(){
                 $('.popup-par').css('display','none');
@@ -560,6 +651,15 @@
                 }
             }
         })
+
+        //로그인 닫기
+        $('#btn-reset').on({
+            'click':function(){
+                $('.login').css('display','none');
+            }
+        })
+
+        $('#user-id').val( $.cookie('save-id'));
 
         // 만들어진 쿠키를 안보이게 하기
         if($.cookie('modal-popup') == 'no'){
@@ -583,6 +683,13 @@
             }
         })
         $('#user-id').val($.cookie('user-id'));
+
+        $('#btn-login').on({
+            'click':function(){
+                $('.login').css('display','block');
+                return false;
+            }
+        })
     </script>
 
 </body>
