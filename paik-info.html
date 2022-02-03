@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- meta -->
+    <meta name="description" content="빽다방 반응형 웹페이지">
+    <meta name="keywords" content="빽다방,paik,백종원,커피,음료,베이커리,아이스크림">
+    <meta name="author" content="heo eun hye">
+
+    <!-- sns 오픈그래픽 -->
+    <meta property="og:title" content="빽다방 반응형 웹페이지">
+    <meta property="og:url" content="https://jurin2.github.io/paikdabang/">
+    <meta property="og:image" content="https://jurin2.github.io/paikdabang/images/og-img.jpg">
+    <meta property="og:description" content="여기를 눌러 링크를 확인하세요.">
+   
+    <!-- 트위터카드 -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="빽다방 반응형 웹페이지">
+    <meta name="twitter:url" content="https://jurin2.github.io/paikdabang/">
+    <meta name="twitter:image" content="https://jurin2.github.io/paikdabang/images/og-img.jpg">
+    <meta name="twitter:description" content="여기를 눌러 링크를 확인하세요.">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="https://jurin2.github.io/paikdabang/favicon.png" type="image/x-icon">
+
+    <!-- reset -->
+    <link rel="stylesheet" href="https://jurin2.github.io/paikdabang/css/reset.css">
+
+    <!-- font-awesome css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/default.css">
+    <link rel="stylesheet" href="./css/login.css">
+
+    <title>빽다방</title>
+
+    <style>
+        .sub-main{
+            border-bottom:2px solid #ff0;
+            padding-top:70px;            
+        }    
+        .sub-top{
+            padding:150px 0 50px;
+            background:url(./images/bg-about.jpg) no-repeat center;
+            background-size:cover;
+        }
+        .sub-top .inner{
+            height:300px;
+            display:flex;
+            flex-flow:column nowrap;
+            justify-content:space-between;
+            align-items:center;
+        }
+        .sub-top .inner h2{
+            font-weight:500;
+            font-size:42px;
+            text-align:center;
+        }
+        .sub-top .inner hr{
+            width:50px;
+            margin: 30px auto;
+        }
+        .sub-top .inner p{
+            text-align:center;
+        }
+        .btn-sub ul{
+            display:flex;
+            flex-flow:row wrap;
+            justify-content:center;
+            align-items:center;
+        }
+        .btn-sub ul li{
+            width:100%;
+            border:1px solid rgba(0,0,0,0.3);
+            border-bottom:none;
+            padding:10px;
+            background-color:#fff;
+            text-align:center;
+            cursor: pointer;
+        }
+        .btn-sub ul li:last-child{
+            border-bottom:1px solid rgba(0,0,0,0.3); 
+        }
+        .btn-sub ul li.active,.btn-sub ul li:hover{
+            background-color:#ff0;  
+        }
+
+        .sub-bottom{
+            padding:70px 0;
+        }
+        .sub-bottom h3{
+            margin-bottom:50px;
+            font-weight:900;
+            font-size:42px;
+            color:#071f60;
+            text-transform:uppercase;
+            text-align:center;
+        }
+        .sub-bottom .contents{
+            display:flex;
+            flex-flow:row wrap;
+            justify-content: space-between;                        
+        }
+        .sub-bottom .contents>div{
+            width:100%;
+        }
+        .con01{
+            margin-bottom:50px;
+        }
+        .con01 .img-box{
+            max-width:600px;
+            margin:0 auto 20px;
+            border-radius:20px;
+            overflow:hidden;
+        }
+        .con01 .history{
+            font-size:14px;
+            color:#999;
+        }
+        .con01 .history h4{
+            margin-bottom:10px;
+            font-weight:500;
+            font-size:18px;
+            color:#071f60;
+        }
+        .con01 .history b{
+            color:#666;
+        }
+        .con01 .history>ul>li{
+            margin-bottom:4px;
+            display:flex;
+            flex-flow:row wrap;
+            justify-content:space-between;
+        }
+        .con01 .history>ul>li>*{
+            width:100%;
+            margin-bottom:4px;
+        }
+        .con01 .history li li{
+            margin-bottom:4px;
+        }
+
+        .con02 h4{
+            font-weight:500;
+            font-size:42px;
+            color:#071f60;
+        }
+        .con02 hr{
+            width:50px;
+            height:2px;
+            margin:30px 0;
+            background-color: #071f60;
+            border:none;
+        }
+        .con02 p{
+            margin-bottom:30px;
+            line-height:20px;
+            color:#666;
+        }
+        .con02 strong{
+            display:block;
+            color:#333;
+        }
+        .ceo{
+            display:flex;
+            flex-flow:column wrap;
+            width:300px;
+            height:50px;
+        }
+        .ceo span{
+            width:60%;
+        }
+        .ceo span:last-of-type{
+            padding-right:18px;
+            font-weight:700;
+            font-size:24px;
+            text-align:right;
+        }
+        .ceo .img-box{
+            width:40%;
+        }
+        @media (min-width:960px){
+            .btn-sub{
+                width:80%;
+            }
+            .btn-sub ul li{
+                width:33.3333%;
+                border:1px solid rgba(0,0,0,0.3); 
+                border-right:none;
+            }
+            .btn-sub ul li:last-child{
+                border-right:1px solid rgba(0,0,0,0.3); 
+            }
+
+            .sub-bottom .contents>div{
+                width:calc(50% - 24px);
+            }
+            .con01 .img-box{
+                max-width:100%;
+            }
+        }
+
+        @media (min-width:1200px){
+            .sub-main{
+                padding-top:120px;
+            } 
+            .con01 .history{
+                font-size:13px;
+            }
+            .con01 .history>ul>li{
+                margin-bottom:0;
+            }
+            .con01 .history>ul>li>span{
+                width:173px;
+            }
+            .con01 .history>ul>li>ul{
+                width:358px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <section class="skip-menu">
+        <a href="#">메뉴1</a>
+        <a href="#">메뉴2</a>
+        <a href="#">메뉴3</a>
+    </section>
+
+    <div class="login">
+        <form>
+            <h2>
+                <i class="fas fa-sign-in-alt"></i>
+                ID 로그인
+            </h2>
+            <div class="input01">
+                <i class="far fa-user"></i>
+                <input type="text" id="user-id" placeholder="아이디">
+            </div>
+            <div class="input02">
+                <i class="fas fa-unlock"></i>
+                <input type="password" id="user-pass" placeholder="패스워드">
+            </div>
+            <div class="input05">
+                <label>
+                    <input type="checkbox" id="save-id">
+                    <div class="chk-box"></div>
+                    ID 저장
+                </label>
+            </div>
+            <div class="input03">
+                <input type="submit" value="로그인" id="btn-send">
+            </div>
+            <div class="input04">
+                <input type="reset" value="취소" id="btn-reset">
+            </div>
+            
+            
+        </form>
+    </div>
+    
+    <section class="wrap">
+        <header class="header">
+            <div class="container">
+                <div class="inner">
+                    <div class="h-left">
+                    <h1><a href="./index.html"><img src="./images/logo.png" alt="시작페이지로 이동"></a></h1>
+                    </div>
+                    <div class="h-right">
+                        <ul class="sm-nav">           
+                            <li><a href="#" id="btn-login">로그인</a></li>
+                            <li><a href="#">더본코리아</a></li>
+                            <li><a href="#">매장찾기</a></li>
+                            <li class="ico-sns"><a href="#"><i class="fab fa-facebook"></i></a></li>
+                            <li class="ico-sns"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        </ul>
+                        <div class="btn-nav">
+                            <div class="line">라인</div>
+                            <div class="line">라인</div>
+                            <div class="line">라인</div>
+                        </div>
+                        <nav class="nav">
+                            <ul class="main-nav">
+                                <li>
+                                    <a href="#">빽다방</a>
+                                    <ul class="sub-nav">
+                                        <li><a href="#">CEO 인사말</a></li>
+                                        <li><a href="#">빽다방 소개</a></li>
+                                        <li><a href="#">커피이야기</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">메뉴</a>
+                                    <ul class="sub-nav">
+                                        <li><a href="#">신메뉴</a></li>
+                                        <li><a href="#">커피</a></li>
+                                        <li><a href="#">음료</a></li>
+                                        <li><a href="#">아이스크림/디저트</a></li>
+                                        <li><a href="#">빽스치노</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">소식</a>
+                                    <ul class="sub-nav">
+                                        <li><a href="#">소식</a></li>
+                                        <li><a href="#">이벤트</a></li>
+                                        <li><a href="#">친절 우수매장</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">커뮤니티</a>
+                                    <ul class="sub-nav">
+                                        <li><a href="#">커피 클래스</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">매장안내</a>
+                                    <ul class="sub-nav">
+                                        <li><a href="#">매장찾기</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">창업안내</a>
+                                    <ul class="sub-nav">
+                                        <li><a href="#">가맹정보 및 절차</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">고객의 소리</a></li>
+
+                            </ul>
+                        </nav>
+                    </div>    
+                </div>       
+            </div>
+        </header>
+        
+        <section class="sec sub-main">
+            <section class="sec sub-top">
+                <div class="container">
+                    <div class="inner">
+                        <div class="txt">
+                            <h2>빽다방</h2>
+                            <hr>
+                            <p>합리적인 가격, 놀라운 퀄리티의 커피전문점 "빽다방"입니다.</p>
+                        </div>
+                        <div class="btn-sub">
+                            <ul>
+                                <li class="active">CEO 인사말</li>
+                                <li>빽다방 소개</li>
+                                <li>커피 이야기</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="sec sub-bottom">
+                <div class="container">
+                    <div class="inner">
+                        <h3>PAIK'S COFFEE</h3>
+                        <div class="contents">
+                            <div class="con01">
+                                <div class="img-box">
+                                    <img src="./images/ceo.jpg" alt="ceo이미지">
+                                </div>
+                                <div class="history">
+                                    <h4>사업약력 및 저서</h4>
+                                    <ul>
+                                        <li>
+                                            <span><b>2012</b> 더본재팬 대표이사</span>
+                                            <ul>
+                                                <li>‘백종원이 추천하는 집밥 메뉴 55’출간(국내 및 대만판 출간)</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <span><b>2008</b> 더본아메리카 대표이사</span>
+                                            <ul>
+                                                <li>‘백종원이 추천하는 집밥 메뉴 54’출간(국내 및 대만판 출간)</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <span><b>2005</b> 더본차이나 대표이사</span>
+                                            <ul>
+                                                <li>‘백종원이 추천하는 집밥 메뉴 52’출간(국내 및 중국판/대만판 출간)</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <span><b>1993</b> 더본코리아 대표이사</span>
+                                            <ul>
+                                                <li>‘백종원의 肉’ 출간</li>
+                                                <li>‘초짜도 대박나는 전문식당’ 출간</li>
+                                                <li>‘무조건 성공하는 작은식당’ 출간</li>
+                                                <li>‘백종원의 식당 조리비책’ 출간</li>
+                                                <li>‘돈버는 식당, 비법은 있다’ 출간</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="con02">
+                                <h4>
+                                    합리적인 커피 문화를
+                                    <br>
+                                    만들어 갑니다.
+                                </h4>
+                                <hr>
+                                <p>
+                                    <strong>빽다방의 역사는 재미있는 에피소드로 시작합니다.</strong>
+                                    2006년, 논현동에 몰려있던 저희 식당들 때문에 식당 주변에 고객들의 불법 주정차가 많았습니다. 이러한 차량 때문에 가장 피해를 많이 보신 분이 저희 원조쌈밥집 입구에 위치한 작은 카페였습니다. 카페 앞 정차 차량으로 인해 항상 죄송한 마음이 있었는데,
+                                    아예 인수를 하는 것이 어떻겠냐는 카페 사장님의 부탁에 어쩌다 보니 운영하게 된
+                                    작은 카페가 바로 빽다방의 시초가 되었습니다.
+                                </p>
+                                <p>
+                                    막상 가게를 인수하고 나니, 커피 공부를 하지 않을 수 없었습니다.
+                                    커피에 대해 연구하면서 머릿속으로 수많은 물음표를 만들었습니다.
+                                    원두의 유통 구조가 어떠하길래 커피가 이렇게 비쌀까? 아이스커피를 목덜미가 서늘할 정도로 시원하게 마실 수 있는 방법은 무엇일까? 내가 좋아하는 믹스커피를 질리지 않게 대용량으로 즐기는 방법은 없을까? 테이크아웃이라고 빵을 못 팔 수는 없지 않을까?
+                                </p>
+                                <p>
+                                    <strong>이러한 호기심으로 시작했던 작은 카페의 메뉴가 국내를 넘어 세계인에게도 인정받는 시그니처 메뉴인 아이스 앗!메리카노와 원조커피로 성장하게 되었습니다.</strong>
+                                </p>
+                                <p>
+                                    이는 모두 가성비 중심의 스마트하고, 합리적인 소비를 원하는 고객분들께서 만들어 주신 성장입니다. 그 기대를 저버리지 않기 위한 막중한 책임감을 느끼며 좋은 품질, 부담 없는 가격의 커피와 음료로 보답하겠습니다.
+                                </p>
+                                <p>
+                                    항상 친구 같은 편안한 모습으로 여러분 곁에 있고 싶습니다.
+                                    빽다방과 함께 달콤한 하루 되시기를 바랍니다.
+                                </p>
+                                <div class="ceo">
+                                    <span>(주)더본코리아 대표이사</span>
+                                    <span>백 종 원</span>
+                                    <div class="img-box">
+                                        <img src="./images/ceo_sign.png" alt="ceo싸인">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        
+
+        <footer class="footer">
+            <div class="container">
+                <div class="img-box">
+                    <a href="./index.html">
+                        <img src="./images/flogo.png" alt="더본코리아 로고">
+                    </a>
+                </div>
+                <address>
+                    <ul>
+                        <li><a href="#">(주)더본코리아</a></li>
+                        <li><a href="#">사업자등록번호 211-86-00870</a></li>
+                        <li><a href="#">대표이사 백종원</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">주소:서울시 강남구 봉은사로 1길 39 유성빌딩 5~6층</a></li>
+                        <li><a href="#">팩스:02-511-3864</a></li>                
+                    </ul>
+                    <ul>
+                        <li><a href="#">본사 대표전화:02-549-3864</a></li>
+                        <li><a href="#">가맹상담전화:02-3447-0410</a></li>
+                        <li><a href="#">고객센터:1544-2360</a></li>
+                    </ul>
+                    <div class="copyright">
+                        COPYRIGHTⓒ 2018 THEBORN KOREA INC. ALL RIGHTS RESERVED
+                    </div>
+                </address>     
+                <div class="f-sit">
+                    <span>패밀리사이트 바로가기</span>
+                    <ul class="f-list">
+                        <li><a href="#">더본코리아</a></li>
+                        <li><a href="#">창업센터</a></li>
+                        <li><a href="#">새마을식당</a></li>
+                        <li><a href="#">한신포차</a></li>
+                        <li><a href="#">역전우동</a></li>
+                        <li><a href="#">백스비어</a></li>
+                        <li><a href="#">롤링파스타</a></li>
+                        <li><a href="#">인생설렁탕</a></li>
+                        <li><a href="#">미정국수</a></li>
+                        <li><a href="#">리춘시장</a></li>
+                        <li><a href="#">원조쌈밥집</a></li>
+                        <li><a href="#">돌배기집</a></li>
+                        <li><a href="#">백철판</a></li>
+                        <li><a href="#">호텔더본</a></li>                            
+                    </ul>
+                </div>  
+            </div>
+        </footer>
+        <section class="scr-top">
+            <div class="container">
+                <a href="#top" class="btn-top">
+                    <span>TOP</span>
+                </a>
+                
+            </div>
+        </section>
+    </section>
+
+
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- jquery cookie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- header&foooter 공통 -->
+    <script src="./js/rsp-menu.min.js"></script>
+    <script src="./js/f-sit.min.js"></script>
+    <script src="./js/login.js"></script>
+
+    <script> 
+    $('.btn-sub ul li').on({
+        'click':function(){
+            $('.btn-sub ul li').removeClass('active');
+            $(this).addClass('active');
+        }
+    })
+    </script>
+
+</body>
+</html>

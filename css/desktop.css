@@ -2,66 +2,6 @@
 
  /* 데스크탑 스타일 */
  @media (min-width:1200px) {
-    /* header */
-    .header .inner{
-        height: 120px;
-    }
-    .h-left{
-        width: 194px;
-    }
-    .sm-nav{
-        display: flex;
-        margin-bottom: 30px;
-    }   
-    .btn-nav{
-        display: none;
-    }     
-    .nav{
-        position: static;
-    }
-    .main-nav>li{
-        width: auto;
-        margin-left: 80px;
-        border-bottom: none;
-        padding: 0;
-        position: relative;
-    }
-    .main-nav>li::before{
-        content: '';
-        display: block;
-        position: fixed;
-        left: 0;
-        right: 0;
-        z-index: 10;
-        top: 120px;
-        height: 0;
-        background-color: #ff0;
-        transition: 0.15s;
-    }
-    .main-nav>li.active::before{
-        display: block;
-        height: 200px;
-    }
-    .main-nav>li>a{
-        padding: 0;
-    }
-    .sub-nav{
-        display:none;
-        position: absolute;
-        left: -40px;
-        right: -40px;
-        top: 50px;
-        z-index: 11;
-        margin: 0;
-        padding: 0;             
-    }
-    .sub-nav li{
-        margin: 0;
-        padding: 10px 0;
-        border-bottom: none;
-        text-align: center;
-    }
-
     /* main-slider */
     .main-slider{
         padding-top: 120px;
@@ -73,21 +13,6 @@
     }
     .btn-hover{
         margin: 30px auto 30px 0;
-    }
-
-    /* item-sec */
-    .item-sec .container{
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .item-sec .inner{
-        padding-top: 60px;
-    }
-    .item-sec h3{
-        font-size: 3em;
-    }
-    .item-sec p{
-        display: block;
     }
 
     /* various-sweet */
@@ -167,10 +92,5 @@
     }
     .search i{
         font-size: 1.5em;
-    }
-
-    /* footer */
-    .footer .f-sit{
-        display: block
-    }
+    } 
 }
