@@ -1,7 +1,7 @@
 @charset 'utf-8';
 
 .sub-top{
-    background: url(./images/bg-menu.jpg) no-repeat center;
+    background: url(../images/bg-menu.jpg) no-repeat center;
 }
 .sub-bottom{
     padding: 100px 0;
