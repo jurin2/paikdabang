@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="./css/default.css">
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/sub-defailt.css">
+    <link rel="stylesheet" href="./css/menu.css">
 
     <!-- swiper js -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
@@ -43,92 +44,7 @@
     <title>빽다방</title>
 
     <style>
-        .sub-top{
-            background: url(./images/bg-menu.jpg) no-repeat center;
-        }
-        .sub-bottom{
-            padding: 100px 0;
-        }
-        .sub-bottom h2{
-            font-weight: 700;
-            font-size: 42px;
-            color: #071F60;
-            text-align: center;
-        }
-        .sub-bottom h2::after{
-            content: '';
-            display: block;
-            width: 50px;
-            height: 2px;
-            margin: 20px auto;
-            background-color: #071F60;
-        }
-        .swiper{
-            margin: 50px 0 100px;
-        }
-        .swiper .swiper-button-prev::after,
-        .swiper .swiper-button-next::after{
-            font-size: 40px;
-            color: 
-            rgba(0,0,0,0.3);
-        }
-        .swiper-slide::after{
-            content: 'BEST';
-            display: block;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: #071F60;
-            font-weight: 900;
-            font-size: 20px;
-            color: #ff0;
-            text-align: center;
-            line-height: 80px;
-
-            position: absolute;
-            right: 15%;
-            top: 15%;
-        }
-        .menu-list>ul{
-            display: flex;
-            flex-flow: row wrap;
-        }
-        .menu-list ul li{
-            width: 100%;
-            border: 1px solid #ddd;
-        }
-        .menu-list ul li:hover{
-            border-color: #071F60;
-        }
-        .menu-list h3,.swiper h3{
-            margin-bottom: 30px;
-            font-weight: 500;
-            font-size: 20px;
-            text-align: center;
-        }
         
-
-        @media(min-width:768px){
-            .menu-list ul li{
-                width: 50%;
-            }
-          
-        }
-
-        @media(min-width:960px){
-            .btn-sub ul li{
-                width: 20%;        
-            }
-            .menu-list ul li{
-                width: 33.333333%;
-            }
-        }
-
-        @media(min-width:1200px){
-            .menu-list ul li{
-                width: 25%;
-            }
-        }
     </style>
 </head>
 <body>
@@ -397,8 +313,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- header&foooter 공통 -->
-    <script src="./js/rsp-menu.min.js"></script>
-    <script src="./js/f-sit.min.js"></script>
+    <script src="./js/rsp-menu.js"></script>
+    <script src="./js/f-sit.js"></script>
     <script src="./js/login.js"></script>
 
     <!-- swiper js -->
