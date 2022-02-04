@@ -12,9 +12,39 @@
 <div id="menu-tit2">커피</div>
 <div id="menu-txt2">뉴 크롭 원두를 사용하여 더욱더 신선한 커피 메뉴를 만나보세요.</div>
 <div id="menu-list2">
-    <li>신메뉴1</li>
-    <li>신메뉴2</li>
-    <li>신메뉴3</li>
-    <li>신메뉴4</li>
-    <li>신메뉴5</li>
+    <li>커피1</li>
+    <li>커피2</li>
+    <li>커피3</li>
+    <li>커피4</li>
+    <li>커피5</li>
+</div>
+
+<div id="menu-tit3">음료</div>
+<div id="menu-txt3">퀄리티 높은 식자재를 사용하여 맛있는 음료를 제공합니다.</div>
+<div id="menu-list3">
+    <li>음료1</li>
+    <li>음료2</li>
+    <li>음료3</li>
+    <li>음료4</li>
+    <li>음료5</li>
+</div>
+
+<div id="menu-tit4">아이스크림/디저트</div>
+<div id="menu-txt4">달콤 아이스크림부터 든든 브레드까지 다양하게 즐기세요.</div>
+<div id="menu-list4">
+    <li>아이스크림/디저트1</li>
+    <li>아이스크림/디저트2</li>
+    <li>아이스크림/디저트3</li>
+    <li>아이스크림/디저트4</li>
+    <li>아이스크림/디저트5</li>
+</div>
+
+<div id="menu-tit5">빽스치노</div>
+<div id="menu-txt5">오직 빽다방에서만 만나보실 수 있는 시그니처 메뉴입니다.</div>
+<div id="menu-list5">
+    <li>빽스치노1</li>
+    <li>빽스치노2</li>
+    <li>빽스치노3</li>
+    <li>빽스치노4</li>
+    <li>빽스치노5</li>
 </div>

@@ -37,6 +37,8 @@
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/sub-defailt.css">
 
+    <!-- swiper js -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
 
     <title>빽다방</title>
 
@@ -44,9 +46,87 @@
         .sub-top{
             background: url(./images/bg-menu.jpg) no-repeat center;
         }
+        .sub-bottom{
+            padding: 100px 0;
+        }
+        .sub-bottom h2{
+            font-weight: 700;
+            font-size: 42px;
+            color: #071F60;
+            text-align: center;
+        }
+        .sub-bottom h2::after{
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            margin: 20px auto;
+            background-color: #071F60;
+        }
+        .swiper{
+            margin: 50px 0 100px;
+        }
+        .swiper .swiper-button-prev::after,
+        .swiper .swiper-button-next::after{
+            font-size: 40px;
+            color: 
+            rgba(0,0,0,0.3);
+        }
+        .swiper-slide::after{
+            content: 'BEST';
+            display: block;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #071F60;
+            font-weight: 900;
+            font-size: 20px;
+            color: #ff0;
+            text-align: center;
+            line-height: 80px;
+
+            position: absolute;
+            right: 15%;
+            top: 15%;
+        }
+        .menu-list>ul{
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .menu-list ul li{
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+        .menu-list ul li:hover{
+            border-color: #071F60;
+        }
+        .menu-list h3,.swiper h3{
+            margin-bottom: 30px;
+            font-weight: 500;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+
+        @media(min-width:768px){
+            .menu-list ul li{
+                width: 50%;
+            }
+          
+        }
+
         @media(min-width:960px){
             .btn-sub ul li{
-                width: 20%;
+                width: 20%;        
+            }
+            .menu-list ul li{
+                width: 33.333333%;
+            }
+        }
+
+        @media(min-width:1200px){
+            .menu-list ul li{
+                width: 25%;
             }
         }
     </style>
@@ -123,7 +203,7 @@
                                 <li>
                                     <a href="#">메뉴</a>
                                     <ul class="sub-nav">
-                                        <li><a href="#">신메뉴</a></li>
+                                        <li><a href="./menu.html">신메뉴</a></li>
                                         <li><a href="#">커피</a></li>
                                         <li><a href="#">음료</a></li>
                                         <li><a href="#">아이스크림/디저트</a></li>
@@ -175,7 +255,7 @@
                             <p id="menu-txt"></p>
                         </div>
                         <div class="btn-sub">
-                            <ul>
+                            <ul c>
                                 <li class="active">신메뉴</li>
                                 <li>커피</li>
                                 <li>음료</li>
@@ -189,9 +269,66 @@
             <section class="sec sub-bottom">
                 <div class="container">
                     <div class="inner">
-                       <ul id="menu-list">
-                         
-                       </ul>
+                        <h2>신메뉴</h2>
+                        <!-- 슬라이더 -->
+                        <!-- Slider main container -->
+                        <div class="swiper">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide">
+                                <div class="img-box">
+                                    <img src="./images/img-menu01.png" alt="신메뉴1">
+                                </div>
+                                <h3>콜드브루</h3>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="img-box">
+                                    <img src="./images/img-menu02.png" alt="신메뉴2">
+                                </div>
+                                <h3>콜드브루라떼</h3>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="img-box">
+                                    <img src="./images/img-menu03.png" alt="신메뉴3">
+                                </div>
+                                <h3>콜드브루 연유라떼</h3>
+                            </div>
+                            </div>
+                        
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+
+                        <div class="menu-list">
+                            <ul>
+                                <li>
+                                    <div class="img-box">
+                                        <img src="./images/img-menu01.png" alt="신메뉴1">
+                                    </div>
+                                    <h3>콜드브루</h3>
+                                </li>
+                                <li>
+                                    <div class="img-box">
+                                        <img src="./images/img-menu02.png" alt="신메뉴2">
+                                    </div>
+                                    <h3>콜드브루라떼</h3>
+                                </li>
+                                <li>
+                                    <div class="img-box">
+                                        <img src="./images/img-menu03.png" alt="신메뉴3">
+                                    </div>
+                                    <h3>콜드브루 연유라떼</h3>
+                                </li>
+                                <li>
+                                    <div class="img-box">
+                                        <img src="./images/img-menu03.png" alt="신메뉴4">
+                                    </div>
+                                    <h3>콜드브루 연유라떼2</h3>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -253,8 +390,6 @@
             </div>
         </section>
     </section>
-
-
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -266,6 +401,9 @@
     <script src="./js/f-sit.min.js"></script>
     <script src="./js/login.js"></script>
 
+    <!-- swiper js -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
     <script> 
     $('.btn-sub ul li').on({
         'click':function(){
@@ -273,23 +411,80 @@
             $(this).addClass('active');
         }
     })
-    $('#menu-tit').load('./menu.txt #menu-tit1');
-    $('#menu-txt').load('./menu.txt #menu-txt1');
-    $('#menu-list').load('./menu.txt #menu-list1');
+   
 
-    $('.btn-sub li').on({
+    function loadMenu01(){
+        $('#menu-tit').load('./menu.txt #menu-tit1');
+        $('#menu-txt').load('./menu.txt #menu-txt1');
+        $('#menu-list').load('./menu.txt #menu-list1');
+    }
+    function loadMenu02(){
+        $('#menu-tit').load('./menu.txt #menu-tit2');
+        $('#menu-txt').load('./menu.txt #menu-txt2');
+        $('#menu-list').load('./menu.txt #menu-list2');
+    }
+    function loadMenu03(){
+        $('#menu-tit').load('./menu.txt #menu-tit3');
+        $('#menu-txt').load('./menu.txt #menu-txt3');
+        $('#menu-list').load('./menu.txt #menu-list3');
+    }
+    function loadMenu04(){
+        $('#menu-tit').load('./menu.txt #menu-tit4');
+        $('#menu-txt').load('./menu.txt #menu-txt4');
+        $('#menu-list').load('./menu.txt #menu-list4');
+    }
+    function loadMenu05(){
+        $('#menu-tit').load('./menu.txt #menu-tit5');
+        $('#menu-txt').load('./menu.txt #menu-txt5');
+        $('#menu-list').load('./menu.txt #menu-list5');
+    }
+
+    loadMenu01();
+
+    $('.sub-nav a,.btn-sub li').on({
         'click':function(){
             if($(this).text()=='신메뉴'){
-                $('#menu-tit').load('./menu.txt #menu-tit1');
-                $('#menu-txt').load('./menu.txt #menu-txt1');
-                $('#menu-list').load('./menu.txt #menu-list1');
+                loadMenu01();
+                return false;
             }else if($(this).text()=='커피'){
-                $('#menu-tit').load('./menu.txt #menu-tit2');
-                $('#menu-txt').load('./menu.txt #menu-txt2');
-                $('#menu-list').load('./menu.txt #menu-list2'); 
+                loadMenu02();
+                return false;
+            }else if($(this).text()=='음료'){
+                loadMenu03();
+                return false;
+            }else if($(this).text()=='아이스크림/디저트'){
+                loadMenu04();
+                return false;
+            }else if($(this).text()=='빽스치노'){
+                loadMenu05();
+                return false;
             }
         }
     })
+    
+   // 스와이퍼슬라이드
+   const swiper = new Swiper('.swiper', {
+            // 슬라이더 기본설정
+            slidesPerView: 1,
+            spaceBetween: 24,
+
+            // 반응형포인트
+            breakpoints:{
+                640:{
+                    slidesPerView: 2,
+                },
+                960:{
+                    slidesPerView: 3,
+                },  
+            },
+
+            // 내비게이션 버튼
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    
     </script>
 
 </body>
