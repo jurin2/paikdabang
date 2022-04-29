@@ -1,4 +1,4 @@
-# 빽다방 랜딩페이지 반응형 클론코딩
+# 빽다방 홈페이지 반응형 클론코딩
 HTML, CSS, JavaScript, Jquery를 공부하면서 만든 반응형으로 만든 빽다방 홈페이지입니다
 <br><br>
 
@@ -12,7 +12,7 @@ HTML, CSS, JavaScript, Jquery를 공부하면서 만든 반응형으로 만든 �
 
 ### 1. 반응형 페이지 작업
 #### 웹표준을 준수하여 빽다방 페이지를 반응형으로 클론코딩
-<img src="https://user-images.githubusercontent.com/89722981/165810093-aa04bfde-fc3f-44f3-b765-f833b041f86b.png" width="70%" alt="메가박스 랜딩페이지"/> <img src="https://user-images.githubusercontent.com/89722981/165811938-8abf7091-f52e-4acb-878c-5bd3b7405702.png" width="20%" alt="메가박스 반응형 모바일 페이지"/>
+<img src="https://user-images.githubusercontent.com/89722981/165810093-aa04bfde-fc3f-44f3-b765-f833b041f86b.png" width="70%" alt="메가박스 홈페이지"/> <img src="https://user-images.githubusercontent.com/89722981/165811938-8abf7091-f52e-4acb-878c-5bd3b7405702.png" width="20%" alt="메가박스 반응형 모바일 페이지"/>
 <br><br>
  
 ### 2. 메타 태그 등록
